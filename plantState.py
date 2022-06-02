@@ -147,7 +147,6 @@ class SleepState(PlantState):
 
     def handleButtons(self, type : BtnType):
         print("Go to SelectPlantState")
-        print("AVANT SLEEP INIT")
         self.plant.setState(SelectPlantState(self.plant))
 
     def process(self):
@@ -183,7 +182,6 @@ class WakeUpState(PlantState):
 
     def handleButtons(self, type : BtnType):
         print("Go to SelectPlantState")
-        print("AVANT WAKEUP INIT")
         self.plant.setState(SelectPlantState(self.plant))
 
     def process(self):
@@ -284,7 +282,6 @@ class SelectPlantState(PlantState):
             self.leftButton()
 
     def process(self):
-        print("ICICICICI ?")
         Speak.speak("Selectionner votre plante.")
 
     # ----------------------------------------
