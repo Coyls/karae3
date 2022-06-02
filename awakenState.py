@@ -33,7 +33,6 @@ class AwakeHelloState(AwakenState):
     stateName = "hello-state"
 
     def process(self):
-        Speak.speak("Contente de te voir j'èspere que tu vas bien !")
         self.awake.setState(AwakeSetupState(self.awake))
         
 class AwakeSetupState(AwakenState):

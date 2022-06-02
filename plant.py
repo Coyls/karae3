@@ -92,8 +92,6 @@ class Plant:
             print(key ,":", val)
             type = BtnType[val]
             self.handleButtons(type.value)
-            print(self.storage.plantCarac["name"])
-            print("/button : ",self.state)
 
     # -------------- Utils ------------------
 
