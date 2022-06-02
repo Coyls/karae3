@@ -186,7 +186,6 @@ class AwakeInfoMirrorState(AwakenState):
 
     def process(self):
         self.speakInfos()
-        # !! Ajouter handleDelay et handleHumidityGround pour savoir si la personne a arroser
         self.awake.setState(AwakeStandbyAfterMirror(self.awake))
 
     def speakInfos(self):
