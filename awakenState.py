@@ -183,7 +183,8 @@ class AwakeInfoGeneralState(AwakenState):
 
     def getTmp(self) -> str:
         tmp = self.awake.plant.storage.store["temperature"]
-        return tmp
+        
+        return f"{tmp} degré"
 
     def getSentence(self) -> str:
         h = self.getHour()
