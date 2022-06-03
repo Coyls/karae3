@@ -1,4 +1,4 @@
 switch|etst
-proximity|2022-06-02 10:52:41.028265
+proximity|2022-06-03 09:54:38.943697
 plantIndex|0
 humidityground|2022-06-02 10:51:20.679775

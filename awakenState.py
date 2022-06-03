@@ -173,7 +173,7 @@ class AwakeInfoGeneralState(AwakenState):
         h = now.hour
         m = now.minute
         tmp = self.awake.plant.storage.store["temperature"]
-        str = f"Il est {h} heures {m}, la temperature est de {tmp} degré. J'èspere que tu pass une bonne journée, pense à aller prendre l'air !"
+        str = f"Il est {h} heures {m}, la température est de {tmp} degré. J'èspere que tu pass une bonne journée, pense à aller prendre l'air !"
         Speak.speak(str)
 
 class AwakeInfoMirrorState(AwakenState):
