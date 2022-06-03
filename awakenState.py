@@ -3,6 +3,7 @@ import random
 from utils.protocol import ProtocolGenerator
 from utils.speak import Speak
 from utils.utils import speakSentence
+from playsound import playsound
 # Dev
 # from plantState import AwakeState
 
@@ -82,7 +83,6 @@ class AwakeNeedState(AwakenState):
         isNeedWater = self.needWaterCheck in self.needs
         print("isNeedWater", isNeedWater)
         if lengthNeeds > 0:
-            # AwakeInfoMirrorState
             if isNeedWater:
                 print("WAIT FOR WATER")
                 self.delayWater()
@@ -95,7 +95,7 @@ class AwakeNeedState(AwakenState):
         self.awake.setState(AwakeInfoGeneralState(self.awake))
 
     def handleHumidityGround(self):
-        print("water !!!!!!")
+        playsound("./db/sound/water.mp3")
         self.awake.setState(AwakeInfoMirrorState(self.awake, self.needs))
         
     def checkNeeds(self):
@@ -229,7 +229,8 @@ class AwakeInfoMirrorState(AwakenState):
 class AwakeStandbyAfterMirror(AwakenState):
 
     stateName = "standby-after-mirror"
-    delay = 7   
+    delay = 7
+    switchSound = "./db/sound/switch.mp3"
 
     def process(self):
         # !! DESIGNER : Phrase de transition si l'utilisateur souhaite plus d'info !
@@ -243,6 +244,7 @@ class AwakeStandbyAfterMirror(AwakenState):
         cl.send_message(data.create())
 
     def handleSwitch(self):
+        playsound(self.switchSound)
         self.awake.setState(AwakeInfoGeneralState(self.awake))
 
     def handleDelay(self):

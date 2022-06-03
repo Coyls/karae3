@@ -98,7 +98,7 @@ class TutoTestSwitchState(TutoState):
 
     stateName = "switch-test-state"
     delay = 7
-    prxSound = "./db/sound/prx.mp3"
+    switchSound = "./db/sound/switch.mp3"
 
     def process(self):
         self.speakSwitch()
@@ -108,6 +108,7 @@ class TutoTestSwitchState(TutoState):
         self.process()
 
     def handleSwitch(self):
+        playsound(self.switchSound)
         self.tuto.setState(TutoEndState(self.tuto))
 
     def delayRepeat(self):
@@ -121,7 +122,7 @@ class TutoTestSwitchState(TutoState):
         sentencesBefore = self.tuto.plant.sentence["tutorial"]["switch"]["before"]
         sentencesAfter = self.tuto.plant.sentence["tutorial"]["switch"]["after"]
         speakSentence(sentencesBefore)
-        playsound(self.prxSound)
+        playsound(self.switchSound)
         speakSentence(sentencesAfter)
 
 class TutoEndState(TutoState):

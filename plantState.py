@@ -75,6 +75,8 @@ class StandbyAfterSetup(PlantState):
 
     def handleSwitch(self):
         print("Go to TutorielState")
+        switchSound = "./db/sound/switch.mp3"
+        playsound(switchSound)
         self.plant.setState(TutorielState(self.plant))
 
     def handleProximity(self):
@@ -98,6 +100,8 @@ class TutorielState(PlantState):
     tutoState : TutoState
 
     def handleSwitch(self):
+        switchSound = "./db/sound/switch.mp3"
+        playsound(switchSound)
         self.tutoState.handleSwitch()
 
     def handleProximity(self):
@@ -105,14 +109,12 @@ class TutorielState(PlantState):
 
     def handleDelay(self,  acces : str):
         if (acces == self.tutoState.stateName):
-            print("self.tutoState.stateName",  self.tutoState.stateName)
             self.tutoState.handleDelay()
 
     def handleButtons(self, type : BtnType):
         self.tutoState.handleButton()
 
     def process(self):
-        self.playTutorial()
         self.setState(TutoSetupState(self))
         
     # ----------------------------------------
@@ -120,11 +122,6 @@ class TutorielState(PlantState):
     def setState(self, tutoState : TutoState):
         self.tutoState = tutoState
         self.tutoState.process()
-
-    def playTutorial(self):
-        print("Play tutorial")
-        """ sentences = self.plant.sentence["tutorial"]
-        speakSentence(sentences) """
     
     def goToNextState(self):
         self.plant.setState(SleepState(self.plant))
@@ -132,6 +129,7 @@ class TutorielState(PlantState):
 class SleepState(PlantState):
     
     stateName = "sleep-state"
+    xrpSound = "./db/sound/xrp.mp3" 
 
     def handleSwitch(self):
         pass
@@ -151,7 +149,7 @@ class SleepState(PlantState):
         self.plant.setState(SelectPlantState(self.plant))
 
     def process(self):
-        pass
+        playsound(self.xrpSound)
 
 class WakeUpState(PlantState):
 
@@ -170,6 +168,8 @@ class WakeUpState(PlantState):
 
     def handleSwitch(self):
         print("Go To AwakeState")
+        switchSound = "./db/sound/switch.mp3"
+        playsound(switchSound)
         self.plant.setState(AwakeState(self.plant))
 
     def handleProximity(self):
@@ -178,7 +178,6 @@ class WakeUpState(PlantState):
     def handleDelay(self,  acces : str):
         print("Go to SleepState")
         if (acces == self.stateName):
-            Speak.speak("Je retourne dormir !")
             self.plant.setState(SleepState(self.plant))
 
     def handleButtons(self, type : BtnType):
@@ -243,6 +242,8 @@ class StandbyAfterAwake(PlantState):
 
     def handleSwitch(self):
         print("Go to AwakeState")
+        switchSound = "./db/sound/switch.mp3"
+        playsound(switchSound)
         self.plant.setState(AwakeState(self.plant))
 
     def handleProximity(self):
