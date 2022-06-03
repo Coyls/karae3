@@ -6,6 +6,7 @@ from utils.protocol import ProtocolGenerator
 from utils.speak import Speak
 from utils.types import BtnType
 from utils.utils import speakSentence
+from playsound import playsound
 # Dev 
 # from plant import Plant
 
@@ -155,11 +156,11 @@ class SleepState(PlantState):
 class WakeUpState(PlantState):
 
     stateName = "wake-up-state"
+    prxSound = "./db/sound/prx.mp3"
 
     def __init__(self, plant,delay: int):
         super().__init__(plant)
-        sentences = self.plant.sentence["wake-up-state"]
-        speakSentence(sentences)
+        playsound(self.prxSound)
         self.delay = delay
         cls = plant.connectionManager.clients
         res = dict((v,k) for k,v in cls.items())

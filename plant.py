@@ -8,6 +8,8 @@ from utils.protocol import ProtocolDecodeur
 from utils.speak import Speak
 from utils.storage import Storage
 from utils.types import BtnType
+from playsound import playsound
+
 
 class Plant:
     state : PlantState
@@ -127,13 +129,14 @@ class Plant:
             return True
 
     def waitForAllConnection(self) -> bool:
+        initialisationSound = "./db/sound/initialisation.mp3"
         nb = len(self.connectionManager.clients)
         
         if (nb >= self.NUMBER_CONNECTION and self.twofa >= self.NUMBER_CONNECTION):# ! 6 pour l'instant
             return True
         else:
             if (self.twofa == 1):
-                Speak.speak("Initialisation")
+                playsound(initialisationSound)
             self.twofa += 1
             return False
         
