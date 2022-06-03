@@ -1,4 +1,4 @@
-# from plantState import TutorielState
+from playsound import playsound
 from utils.protocol import ProtocolGenerator
 from utils.speak import Speak
 from utils.utils import speakSentence
@@ -26,7 +26,6 @@ class TutoState:
     def handleButton(self):
         pass
 
-
 class TutoSetupState(TutoState):
 
     stateName = "setup-state"
@@ -37,7 +36,7 @@ class TutoSetupState(TutoState):
         if isBroken:
             print("Lost : ", losts)
             self.speakError(losts)
-            self.tuto.setState(TutoEndState(self.tuto))
+            self.tuto.setState(TutoReturnState(self.tuto))
         else :
             self.tuto.setState(TutoStartState(self.tuto))
             print("Pas de bug detecter")
@@ -99,6 +98,7 @@ class TutoTestSwitchState(TutoState):
 
     stateName = "switch-test-state"
     delay = 7
+    prxSound = "./db/sound/prx.mp3"
 
     def process(self):
         self.speakSwitch()
@@ -118,8 +118,11 @@ class TutoTestSwitchState(TutoState):
         cl.send_message(data.create())
 
     def speakSwitch(self):
-        sentences = self.tuto.plant.sentence["tutorial"]["switch"]
-        speakSentence(sentences)
+        sentencesBefore = self.tuto.plant.sentence["tutorial"]["switch"]["before"]
+        sentencesAfter = self.tuto.plant.sentence["tutorial"]["switch"]["after"]
+        speakSentence(sentencesBefore)
+        playsound(self.prxSound)
+        speakSentence(sentencesAfter)
 
 class TutoEndState(TutoState):
 
@@ -127,8 +130,18 @@ class TutoEndState(TutoState):
     
     def process(self):
         self.speakEnd()
-        self.tuto.goToNextState()
+        self.tuto.setState(TutoReturnState(self.tuto))
+        
 
     def speakEnd(self):
         sentences = self.tuto.plant.sentence["tutorial"]["end"]
         speakSentence(sentences)
+
+class TutoReturnState(TutoState):
+    
+    stateName = "return-state"
+
+    def process(self):
+        self.tuto.goToNextState()
+
+
