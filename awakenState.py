@@ -1,5 +1,5 @@
 from datetime import datetime
-import time
+import random
 from utils.protocol import ProtocolGenerator
 from utils.speak import Speak
 from utils.utils import speakSentence
@@ -102,7 +102,7 @@ class AwakeNeedState(AwakenState):
         percent = self.checkWater()
         self.speakWater(percent)
         tmp = self.checkTemperature()
-        print("tmp :", tmp)
+        print("ICICIC A DEBUG tmp :", tmp)
         self.speakTemperature(tmp)
 
     def checkWater(self):
@@ -110,7 +110,6 @@ class AwakeNeedState(AwakenState):
         waterDb = datetime.strptime(hg, '%Y-%m-%d %H:%M:%S.%f')
         now = datetime.now()
         res = now - waterDb
-        # !! Definir si second ou jours
         resRdy = int(res.total_seconds())
         delta = int(self.awake.plant.storage.plantCarac["deltaWater"])
         percent = int(100 * resRdy / delta) 
@@ -169,12 +168,45 @@ class AwakeInfoGeneralState(AwakenState):
         self.awake.setState(AwakeByeState(self.awake))
 
     def speakInfos(self):
+        sentence = self.createSentence()
+        Speak.speak(sentence)
+
+    def getTimeStr(self) -> str:
         now = datetime.now()
         h = now.hour
         m = now.minute
+        return f"{h} heures {m}"
+
+    def getHour(self) -> int:
+        now = datetime.now()
+        return now.hour
+
+    def getTmp(self) -> str:
         tmp = self.awake.plant.storage.store["temperature"]
-        str = f"Il est {h} heures {m}, la température est de {tmp} degré. J'èspere que tu pass une bonne journée, pense à aller prendre l'air !"
-        Speak.speak(str)
+        return tmp
+
+    def getSentence(self) -> str:
+        h = self.getHour()
+        sentences = self.awake.plant.sentence["horaire"]
+
+        if (h >= 7 and h < 11):
+            return random.choice(sentences["morning"])
+        if (h >= 11 and h < 13):
+            return random.choice(sentences["noon"])
+        if (h >= 13 and h < 18):
+            return random.choice(sentences["afternoon"])
+        if (h >= 18):
+            return random.choice(sentences["evening"])
+
+    def createSentence(self) -> str:
+        time = self.getTimeStr()
+        tmp = self.getTmp()
+        base = self.getSentence()
+
+        withTime = base.replace("[HORAIRE]", time)
+        withTimeTmp = withTime.replace("[TEMPERATURE]", tmp)
+
+        return withTimeTmp
 
 class AwakeInfoMirrorState(AwakenState):
 

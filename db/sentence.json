@@ -1,12 +1,22 @@
 {
     "tutorial": {
-        "start": ["Hello, moi c’est Karae ta plante connectée ! Je vais te présenter comment je fonctionne. Tout d’abord je possède deux éléments important sur mon pot : La molette son qui se trouve au centre sur le devant. Les boutons changement de plante que tu trouveras sous une petite trappe sur le côté gauche du pot. Ces boutons te permettent de modifier mes paramètres si tu souhaites un jour changer de partenaire de choc !"],
-        "button": ["Les deux flèches permettent de naviguer parmi les différentes possibilités, une fois ton choix fait il te suffira de cliquer sur le bouton central. Clic sur le bouton central pour voir ?"],
+        "start": [
+            "Hello, moi c’est Karae ta plante connectée ! Je vais te présenter comment je fonctionne. Tout d’abord je possède deux éléments important sur mon pot : La molette son qui se trouve au centre sur le devant. Les boutons changement de plante que tu trouveras sous une petite trappe sur le côté gauche du pot. Ces boutons te permettent de modifier mes paramètres si tu souhaites un jour changer de partenaire de choc !"
+        ],
+        "button": [
+            "Les deux flèches permettent de naviguer parmi les différentes possibilités, une fois ton choix fait il te suffira de cliquer sur le bouton central. Clic sur le bouton central pour voir ?"
+        ],
         "switch": {
-            "before" : ["Tu gères ! Passons à la suite. Lorsque tu seras près de moi tu entendras ce son :"],
-            "after": ["Il t’indique que j’ai des informations à te fournir. Si tu souhaites m’écouter il te suffira de cliquer sur ton pendentif. Essaye pour voir ?"]
+            "before": [
+                "Tu gères ! Passons à la suite. Lorsque tu seras près de moi tu entendras ce son :"
+            ],
+            "after": [
+                "Il t’indique que j’ai des informations à te fournir. Si tu souhaites m’écouter il te suffira de cliquer sur ton pendentif. Essaye pour voir ?"
+            ]
         },
-        "end": ["Je vais alors pouvoir te dire ce dont j’ai besoin. J’aurais parfois davantage d’informations à t’apporter, tu pourras me signifier que tu souhaites les écouter en cliquant de nouveau sur ton pendentif. Dans les quelques secondes qui suivent mon 'au revoir', tu pourras également réécouter mes paroles en réappuyant sur ton collier. Et voilà, tu connais tout ce dont tu as besoin pour commencer à interagir avec moi. C’est parti !"]
+        "end": [
+            "Je vais alors pouvoir te dire ce dont j’ai besoin. J’aurais parfois davantage d’informations à t’apporter, tu pourras me signifier que tu souhaites les écouter en cliquant de nouveau sur ton pendentif. Dans les quelques secondes qui suivent mon 'au revoir', tu pourras également réécouter mes paroles en réappuyant sur ton collier. Et voilà, tu connais tout ce dont tu as besoin pour commencer à interagir avec moi. C’est parti !"
+        ]
     },
     "thanks": [
         "À plus dans le bus !",
@@ -96,5 +106,25 @@
                 "Profite de cette chaleur pour aller te promener !"
             ]
         }
+    },
+    "horaire": {
+        "morning": [
+            "Il est [HORAIRE] heure, bonjour à toi ! J’espère que tu t’es bien reposé cette nuit",
+            "Ce matin, je te conseille d’écouter 'Plantez vous' sur France Bleu. Un podcast sur l’agriculture urbaine, qui t’apporte un regard neuf et une pratique moderne du jardinage !",
+            "J’espère que tu es en forme, car moi j’ai la pêche ! Aujourd’hui il fait [TEMPERATURE]"
+        ],
+        "noon": [
+            "Il est [HORAIRE]. Mange un peu de verdure mais ne me mange pas moi !",
+            "Il est [HORAIRE], en ce moment c’est la saison des radis, profites-en pour te préparer un bon repas ! "
+        ],
+        "afternoon": [
+            "Il est [HORAIRE], il fait [TEMPERATURE], tu devrais en profiter pour aller prendre l’air !",
+            "Il est [HORAIRE], il fait [TEMPERATURE], reste au chaud et fais-toi une bonne tisane !",
+            "C'est après-midi il fait [TEMPERATURE]"
+        ],
+        "evening": [
+            "Il est [HORAIRE], il se fait tard. Il est l’heure de se coucher !",
+            "A 20h, il y a un super documentaire sur les eucalyptus sur Arte. Mes congénères sont aussi importantes que moi !"
+        ]
     }
 }
