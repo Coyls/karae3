@@ -100,8 +100,6 @@ class TutorielState(PlantState):
     tutoState : TutoState
 
     def handleSwitch(self):
-        switchSound = "./db/sound/switch.mp3"
-        playsound(switchSound)
         self.tutoState.handleSwitch()
 
     def handleProximity(self):

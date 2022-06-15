@@ -37,7 +37,6 @@
     "wake-up-state": [
         "Hello !",
         "Ola !",
-        "Hi !",
         "Salut vieille plante !",
         "Salut !",
         "Bonjour !"
@@ -86,10 +85,10 @@
                 "ligne pas utiliser normal !"
             ],
             "max": [
-                "Merci de m’avoir arrosé. Penses à t’arroser toi aussi.",
-                "Super Merci ! Toi aussi pense à boire un coup !",
-                "Merci d’avoir pensé à moi ! ne t’oublis pas non plus, un petit verre d’eau n’est pas de refus",
-                "Merci ! Une petite baignade un de ces jours pourrait te faire également du bien."
+                "Merci tu gères la fougère. Penses à t’arroser toi aussi.",
+                "Tu gères la fougère ! Toi aussi pense à boire un coup !",
+                "Tu gères la fougère ! ne t’oublis pas non plus, un petit verre d’eau n’est pas de refus",
+                "Tu gères la fougère ! Une petite baignade un de ces jours pourrait te faire également du bien."
             ]
         },
         "temperature": {
