@@ -108,7 +108,7 @@
     },
     "horaire": {
         "morning": [
-            "Il est [HORAIRE] heure, bonjour à toi ! J’espère que tu t’es bien reposé cette nuit",
+            "Il est [HORAIRE], bonjour à toi ! J’espère que tu t’es bien reposé cette nuit",
             "Ce matin, je te conseille d’écouter 'Plantez vous' sur France Bleu. Un podcast sur l’agriculture urbaine, qui t’apporte un regard neuf et une pratique moderne du jardinage !",
             "J’espère que tu es en forme, car moi j’ai la pêche ! Aujourd’hui il fait [TEMPERATURE]"
         ],
